@@ -73,9 +73,11 @@
         <h1 class="title">
           <span class="content__accent">По-</span><br />смотри<br />в окно
         </h1>
-        <ul class="content__list">
-          <!-- ЗДЕСЬ ОКАЖУТСЯ ТЕМПЛЕЙТЫ КАРТОЧЕК -->
-        </ul>
+        <div class="content__list-container">
+          <ul class="content__list">
+            <!-- ЗДЕСЬ ОКАЖУТСЯ ТЕМПЛЕЙТЫ КАРТОЧЕК -->
+          </ul>
+        </div>
       </section>
     </main>
 
@@ -106,12 +108,12 @@
       </li>
     </template>
     <template class="more-button-template">
-      <li><button class="button more-button">Показать еще</button></li>
+      <button class="button more-button">Показать еще</button>
     </template>
 
     <template class="error-template">
       <div class="error">
-        <h2 class="error__title"></h2>
+        <h2 class="error__title">Из этого города нет видео :(</h2>
       </div>
     </template>
     <script src="./scripts/script.js"></script>

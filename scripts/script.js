@@ -5,7 +5,8 @@ const BASE_URL = 'https://v-content.practicum-team.ru';
 const endpoint = `${BASE_URL}/api/videos?pagination[pageSize]=${cardsOnPage}&`;
 
 /* ЭЛЕМЕНТЫ СТРАНИЦЫ */
-const cardsContainer = document.querySelector('.content__list');
+const cardsList = document.querySelector('.content__list');
+const cardsContainer = document.querySelector('.content__list-container');
 const videoContainer = document.querySelector('.result__video-container');
 const videoElement = document.querySelector('.result__video');
 const form = document.querySelector('form');
@@ -30,18 +31,27 @@ mainMechanics(endpoint);
 // осуществляется поиск ✅
 form.onsubmit = (e) => {
   e.preventDefault();
-  cardsContainer.textContent = '';
+
+  cardsList.textContent = '';
+  const buttonInDOM = cardsContainer.querySelector('.more-button');
+  if (buttonInDOM) {
+    buttonInDOM.remove();
+  }
+
   [...videoContainer.children].forEach((el) => {
     el.className === 'error' && el.remove();
   });
+
   showPreloader(preloaderTmp, videoContainer);
   showPreloader(preloaderTmp, cardsContainer);
+
   const formData = serializeFormData(form);
   const requestUrl = generateFilterRequest(
     endpoint,
     formData.city,
     formData.timeArray
   );
+
   mainMechanics(requestUrl);
 };
 
@@ -60,7 +70,7 @@ async function mainMechanics(endpoint) {
       baseUrl: BASE_URL,
       dataArray: data.results,
       cardTmp,
-      container: cardsContainer,
+      container: cardsList,
     });
 
     setVideo({
@@ -76,6 +86,10 @@ async function mainMechanics(endpoint) {
     await delay(preloaderWaitindTime);
     removePreloader(videoContainer, '.preloader');
     removePreloader(cardsContainer, '.preloader');
+
+    // Добавляем класс для стилизации скроллбара
+    cardsContainer.classList.add('custom-scrollbar');
+
     chooseCurrentVideo({
       baseUrl: BASE_URL,
       videoData: cardsOnPageState,
@@ -87,7 +101,7 @@ async function mainMechanics(endpoint) {
     showMoreCards({
       dataArray: data,
       buttonTemplate: moreButtonTmp,
-      cardsContainer,
+      cardsList,
       buttonSelector: '.more-button',
       initialEndpoint: endpoint,
       baseUrl: BASE_URL,
@@ -245,7 +259,7 @@ function showError(container, errorTemplate, errorMessage) {
 function showMoreCards({
   dataArray,
   buttonTemplate,
-  cardsContainer,
+  cardsList,
   buttonSelector,
   initialEndpoint,
   baseUrl,
@@ -269,7 +283,7 @@ function showMoreCards({
         baseUrl,
         dataArray: data.results,
         cardTmp,
-        container: cardsContainer,
+        container: cardsList,
       });
       chooseCurrentVideo({
         baseUrl: BASE_URL,
@@ -281,7 +295,7 @@ function showMoreCards({
       showMoreCards({
         dataArray: data,
         buttonTemplate,
-        cardsContainer,
+        cardsList,
         buttonSelector,
         initialEndpoint,
         baseUrl,
