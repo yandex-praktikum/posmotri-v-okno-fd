@@ -172,6 +172,9 @@ ol {
 }
 
 .content__video-card-description{
+  display: -webkit-box;
+  -webkit-line-clamp:4;
+  -webkit-box-orient: vertical;
   font-family: Fira Sans Condensed;
   font-size: 18px;
   font-weight: 400;
@@ -181,9 +184,7 @@ ol {
   text-decoration-skip-ink: none;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp:4;
-  -webkit-box-orient: vertical;
+ 
 }
 
 .visually-hidden {
