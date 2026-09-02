@@ -9,6 +9,7 @@ html {
 }
 
 .page {
+  display: flex;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -49,3 +50,268 @@ ol {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
 }
+
+.content {
+  display: flex;
+  align-items: end;
+  gap: 30px;
+  align-self: center;
+  inline-size: 1140px;
+}
+
+.result_video-container {
+  position: relative;
+  inline-size: 711px;
+  block-size: 386px;
+  margin-block-end: 16px;
+}
+
+.result_video {
+  object-fit: cover;
+  object-position: center;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.search-form {
+  display: flex;
+  gap: 40px;
+}
+
+.search-form_fieldset {
+  border: none;
+}
+
+.search-form_fieldset-title {
+  color: ffffff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.6px;
+  display: inline-block;
+  margin-bllock-end: 5px;
+}
+
+.search-form_label {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form_textfield {
+  border-inline: none;
+  border-block: 1px solid currentColor;
+  padding: 1px 0;
+  color: inherit;
+  background-color: inherit;
+  inline-size: 225px;
+  apperance: none;
+}
+
+.search-form_textfield::placeholder {
+  opacity: 0.7;
+  color: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  lone-height: 21.6px;
+}
+
+.seaarch-form_checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form_checkbox {
+  apperance: none;
+}
+
+.search-form_checkbox+.search-form_pseudo-checkbox {
+  inline-size: 19px;
+  block-size: 19px;
+  border: 1px solid currentColor;
+  display: block;
+  cursor: pointer;
+}
+
+.search-form_checkbox:checked+.search-form_pseudo-checkbox::before {
+     background-color: #ffffff;
+    inline-size: 15px;
+    block-size: 15px;
+    content: "";
+    display: block;
+    margin: 1px;
+}
+
+.search-form_label-text {
+  font-weight: 400;
+}
+
+button {
+  background-color: inherit;
+  border: 1px solid currentColor;
+  inline-size: 194px;
+  block-size: 34px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.6px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.search-form_submit-button {
+  align-selaf: flex-end;
+}
+
+.content_detals {
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.title {
+  display: inline-block;
+  padding-bottom: 25px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 70.5px;
+  text-transform: uppercase;
+}
+
+.content_accent {
+  color: 545050;
+}
+
+.content_list {
+  position: relative;
+  block-size: 298px;
+  overflow: auto;
+}
+
+.content_list-item {
+  margin: 2px 2px 0px 2px;
+}
+
+.content_card-link {
+  color: ffffff;
+  text-decoration: none;
+  dispaly: block;
+}
+
+.content_card-link_current {
+  background-color: 545050;
+}
+
+.content_video-card {
+  display: flex;
+  align-items: flex-start;
+}
+
+.content_list-item:not(:last-child) {
+  margin-block-end: 34px;
+}
+
+.content_video-card-description-container {
+  flex: 1;
+  padding: 3px 0 0 2px;
+}
+
+.content_video-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 192px;
+}
+
+.content_video-card-decription {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 16.2px;
+}
+
+.content_video-card-thumbnall {
+  display: block;
+  inline-size: 194px;
+  block-size: 103;
+  padding: 1px 1px 1px 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.more-button {
+  inline-size: 100%;
+  margin-bottom: 2px;
+}
+
+.search-form__label:has(.search-form__checkbox):hover {
+  text-decoration: underline;
+}
+
+.content_card-link:hover {
+  text-decoration: underline;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.search-form_textfield:active {
+  border-inline: 1px solid currentColor;
+}
+
+.button:active {
+  background: 545050;
+
+.content_card-link:active {
+  background: 545050;
+
+  .search-forms_textfield:focus {
+    outline: none;
+  }
+
+  .search-form_label:focus {
+    outline: none;
+  }
+
+  .button:focus {
+    outline: none;
+  }
+
+  .content_card-link:focus {
+    outline: none;
+  }
+
+  .search-form_textfield:has(:focus-visible) {
+    outline: 1px solid currentColor;
+    outline-offset: 1px;
+  }
+
+  .search-form_label:has(:focus-visible) {
+    outline: 1px solid currentColor;
+    outline-offset: 1px;
+  }
+
+  .button:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 1px;
+  }
+
+  .content_card-link:focus-visible {
+    outline: 1px solid currentColor;
+  }
